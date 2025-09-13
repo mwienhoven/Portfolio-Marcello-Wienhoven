@@ -3,3 +3,6 @@
 gestures/
 logs/
 .lycheecache
+
+# Ignore the .venv directory
+.venv
