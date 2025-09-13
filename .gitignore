@@ -6,3 +6,25 @@ logs/
 
 # Ignore the .venv directory
 .venv
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.gz
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.bcf
+*.pytxcode
+*.xml
