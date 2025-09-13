@@ -28,3 +28,4 @@ logs/
 *.bcf
 *.pytxcode
 *.xml
+*synctex
