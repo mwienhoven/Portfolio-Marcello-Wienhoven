@@ -31,10 +31,34 @@ I have changed the batchsize in the range from [4,32,124].
 The accuracy does increase when the batchsize goes down. The increase from batchsize 128 to 32 is quite a bit. The increase from 32 to 4 is really small at the cost that the batchsize=4 model took way longer than the batchsize=32 model. The optimal batchsize for this ranges of batchsizes is 32.
 
 ## Change the depth of your model by adding a additional linear layer + activation function
+I expect that adding the additional linear layer + activation function will increase the accuracy of the model. The model is more capable of obtaining more linear regions. Because of the low units I expect that the model will not overfit by definition.
 
-## Changing the learningrate to values between 1e-2 and 1e-5
+I added an extra linear layer and ReLU activation function. The units could be chosen from [16,32,64,128].
+
+The maximal achieved accuracy is 0.867. This is lower compared to the model trained with 10 epochs above. The accuracy of 0.867 is achieved with 128, 128 and 16 units.
+
+## Changing the learning rate to values between 1e-2 and 1e-5
+I expect that the accuracy of the model will increase when the learning rate goes up. I also think there will be a cut-off point where the accuracy will go down when the learning rate goes up. I think there will be an optimal learning rate.
+
+I have changed the learning rate in the range from [1e-2, 1e-3, 1e-4, 1e-5].
+
+- When learningrate=1e-2 the accuracy is 0.855;
+- When learningrate=1e-3 the accuracy is 0.857;
+- When learningrate=1e-4 the accuracy is 0.807;
+- When learningrate=1e-5 the accuracy is 0.651.
+
+The accuracy increases when the learning rate goes up until 1e-3 (0.001). At the learning rate of 1e-2 (0.01), the learning rate goes down compared to 1e-3. The optimal learning rate is 1e-3.
 
 ## Changing the optimizer from SGD to one of the other available algoritms at [torch](https://pytorch.org/docs/stable/optim.html)
+I expect that the Adam optimizer will perform best. Based on literature of the book "Understanding deep learning" the Adam model is quite popular and frequently used.
+
+I have changed the optimizer to Adam, SGD, and RMSprop (Root Mean Square Propagation).
+
+- When optimizer=Adam the accuracy is 0.855;
+- When optimizer=SGD the accuracy is 0.784;
+- When optimizer=RMSprop the accuracy is 0.824.
+
+The Adam optimizer performs best with an accuracy of 0.855. Based on the literature, I expected this result. The SGD performs a lot worse compared the Adam. In between, RMSprop also performs slightly worse compared to Adam.
 
 Find the [notebook](./notebook.ipynb) and the [instructions](./instructions.md)
 
