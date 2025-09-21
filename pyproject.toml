@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "hyperopt>=0.2.7",
     "mads-datasets[torch]>=0.3.14",
+    "mlflow>=3.3.2",
     "mltrainer>=0.2.5",
     "tomlserializer>=0.2.0",
     "torch>=2.8.0",

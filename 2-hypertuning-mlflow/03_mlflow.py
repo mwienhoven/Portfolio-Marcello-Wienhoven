@@ -114,10 +114,14 @@ def objective(params):
     with mlflow.start_run():
         # Set MLflow tags to record metadata about the model and developer
         mlflow.set_tag("model", "convnet")
-        mlflow.set_tag("dev", "raoul")
+        mlflow.set_tag("dev", "Marcello")
         # Log hyperparameters to MLflow
         mlflow.log_params(params)
         mlflow.log_param("batchsize", f"{batchsize}")
+
+        mlflow.log_param("epochs", settings.epochs)
+
+        mlflow.log_param("learning_rate", settings.optimizer_kwargs.get("lr", None))
 
         # Initialize the optimizer, loss function, and accuracy metric
         optimizer = optim.Adam
@@ -126,6 +130,10 @@ def objective(params):
         # Instantiate the CNN model with the given hyperparameters
         model = CNN(**params)
         model.to(device)
+
+        mlflow.log_param("optimizer", optimizer.__name__)
+        mlflow.log_text(str(model), "model_architecture.txt")
+
         # Train the model using a custom train loop
         trainer = Trainer(
             model=model,
@@ -139,6 +147,13 @@ def objective(params):
         )
         trainer.loop()
 
+        # Log training and validation metrics to MLflow
+        mlflow.log_metric("train_accuracy", trainer.train_metrics["accuracy"])
+        mlflow.log_metric("valid_accuracy", trainer.valid_metrics["accuracy"])
+
+        mlflow.log_metric("train_loss", trainer.train_loss)
+        mlflow.log_metric("valid_loss", trainer.test_loss)
+
         # Save the trained model with a timestamp
         tag = datetime.now().strftime("%Y%m%d-%H%M")
         modelpath = modeldir / (tag + "model.pt")
@@ -150,7 +165,7 @@ def objective(params):
         return {"loss": trainer.test_loss, "status": STATUS_OK}
 
 
-def main():
+def main() -> None:
     setup_mlflow("mlflow_database")
 
     search_space = {
@@ -168,3 +183,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+```bash
+mlflow server \
+    --backend-store-uri sqlite:///mlflow.db \
+    --host 127.0.0.1 \ 
+    --port 5000 \
+        
+mlflow server --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000
+```
+"""
