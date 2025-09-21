@@ -56,6 +56,7 @@ class CNN(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2),
             nn.Conv2d(filters, filters, kernel_size=3, stride=1, padding=0),
+            nn.Dropout(p=0.5),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2),
             nn.Conv2d(filters, filters, kernel_size=3, stride=1, padding=0),
@@ -70,8 +71,10 @@ class CNN(nn.Module):
         self.dense = nn.Sequential(
             nn.Flatten(),
             nn.Linear(filters, units1),
+            nn.BatchNorm1d(units1),
             nn.ReLU(),
             nn.Linear(units1, units2),
+            nn.BatchNorm1d(units2),
             nn.ReLU(),
             nn.Linear(units2, 10),
         )
@@ -94,7 +97,8 @@ def setup_mlflow(experiment_path: str) -> None:
 
 
 def objective(params):
-    modeldir = Path("2-hypertuning-mlflow/models").resolve()
+    subfolder = "normalization"
+    modeldir = Path(f"2-hypertuning-mlflow/{subfolder}/models").resolve()
     if not modeldir.exists():
         modeldir.mkdir(parents=True)
         logger.info(f"Created {modeldir}")
@@ -104,7 +108,7 @@ def objective(params):
     settings = TrainerSettings(
         epochs=3,
         metrics=[accuracy],
-        logdir=Path("2-hypertuning-mlflow/modellog"),
+        logdir=Path(f"2-hypertuning-mlflow/{subfolder}/modellog"),
         train_steps=100,
         valid_steps=100,
         reporttypes=[ReportTypes.TENSORBOARD, ReportTypes.TOML, ReportTypes.MLFLOW],
@@ -184,6 +188,6 @@ mlflow server \
     --host 127.0.0.1 \ 
     --port 5000 \
         
-mlflow server --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000
+mlflow server --backend-store-uri sqlite:///2-hypertuning-mlflow/mlflow.db --host 127.0.0.1 --port 5000
 ```
 """
