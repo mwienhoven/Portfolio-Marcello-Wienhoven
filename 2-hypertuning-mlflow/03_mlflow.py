@@ -89,12 +89,12 @@ class CNN(nn.Module):
 
 
 def setup_mlflow(experiment_path: str) -> None:
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_tracking_uri("sqlite:///2-hypertuning-mlflow/mlflow.db")
     mlflow.set_experiment(experiment_path)
 
 
 def objective(params):
-    modeldir = Path("models").resolve()
+    modeldir = Path("2-hypertuning-mlflow/models").resolve()
     if not modeldir.exists():
         modeldir.mkdir(parents=True)
         logger.info(f"Created {modeldir}")
@@ -104,10 +104,10 @@ def objective(params):
     settings = TrainerSettings(
         epochs=3,
         metrics=[accuracy],
-        logdir=Path("modellog"),
+        logdir=Path("2-hypertuning-mlflow/modellog"),
         train_steps=100,
         valid_steps=100,
-        reporttypes=[ReportTypes.MLFLOW],
+        reporttypes=[ReportTypes.TENSORBOARD, ReportTypes.TOML, ReportTypes.MLFLOW],
     )
     # Start a new MLflow run for tracking the experiment
     device = get_device()
@@ -146,13 +146,6 @@ def objective(params):
             device=device,
         )
         trainer.loop()
-
-        # Log training and validation metrics to MLflow
-        mlflow.log_metric("train_accuracy", trainer.train_metrics["accuracy"])
-        mlflow.log_metric("valid_accuracy", trainer.valid_metrics["accuracy"])
-
-        mlflow.log_metric("train_loss", trainer.train_loss)
-        mlflow.log_metric("valid_loss", trainer.test_loss)
 
         # Save the trained model with a timestamp
         tag = datetime.now().strftime("%Y%m%d-%H%M")
