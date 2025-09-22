@@ -32,6 +32,4 @@ I one extra layer of Conv2d (including ReLU) and removed 1 pooling layer.
 
 Most of the models in mlflow have a lower accuracy compared to the 0.71. I see accuracies in the range from 0.56 to 0.69. The mean of the ran models will be around 0.65. These models perform worst compared to the models without changing the layers.
 
-Find the [instructions](./instructions.md)
-
-[Go back to Homepage](../README.md
+[Go back to Homepage](../README.md)

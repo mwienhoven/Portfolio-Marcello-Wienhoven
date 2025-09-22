@@ -60,6 +60,4 @@ I have changed the optimizer to Adam, SGD, and RMSprop (Root Mean Square Propaga
 
 The Adam optimizer performs best with an accuracy of 0.855. Based on the literature, I expected this result. The SGD performs a lot worse compared the Adam. In between, RMSprop also performs slightly worse compared to Adam.
 
-Find the [notebook](./notebook.ipynb) and the [instructions](./instructions.md)
-
 [Go back to Homepage](../README.md)
