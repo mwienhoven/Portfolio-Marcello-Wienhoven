@@ -23,6 +23,9 @@ This model obtained an accuracy of 0.89. This is lower compared to other models.
 This model obtained an accuracy of 0.89. This is lower compared to other models. The dropout made the model worse in this case. The 0.89 is also the same as the dropout of 0.2.
 
 ## 1.6 Added conv1d layer
-This model obtained an accuracy of 0.89-0.91 with different runs. This is quite good and can be higher than the stated 90% in the assignment.
+This model obtained an accuracy of 0.89-0.91 with different runs. This is quite good and can be higher than the stated 90% in the assignment. I will keep the conv1d layer in the model.
+
+## 1.7 Increased num layers to 3
+This model obtained an accuracy of 0.9656. This is really high. Is this model not overfitting?
 
 [Go back to Homepage](../README.md)
