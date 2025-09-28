@@ -1,0 +1,146 @@
+\documentclass[11pt, twoside]{article}
+
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{icomma}
+\usepackage{svg}
+\graphicspath{{images/}}
+\usepackage{footmisc}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{afterpage}
+\usepackage[top=2cm,tmargin=2cm,textheight=18cm,footnotesep=1.2cm,bottom=6cm]{geometry}
+\usepackage{parskip}
+\usepackage{lipsum}
+\usepackage{tabularray}
+\usepackage{amsmath}
+\usepackage{tabu}
+%\usepackage{siunitx}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\numberwithin{equation}{section}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage[labelfont=bf, skip=5pt, font=small]{caption}
+\hypersetup{colorlinks=true, linkcolor=blue,filecolor=magenta, urlcolor=cyan, citecolor=blue}
+\usepackage[style=apa, sorting=nyt]{biblatex}
+\addbibresource{References.bib}
+\usepackage[version=4]{mhchem}
+\usepackage{pythontex}
+\usepackage{enumitem}
+\usepackage[dvipsnames, svgnames, usenames]{xcolor}
+\usepackage{pdfpages}
+\usepackage{cleveref}
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella}
+
+\lstset{language=Python, 
+        basicstyle=\ttfamily\footnotesize, 
+        keywordstyle=\color{blue}, 
+        commentstyle=\color{green}, 
+        breaklines=true,
+        stringstyle=\color{red}}
+
+\DeclareCaptionFormat{custom}
+{\textbf{#1 #2}\textit{\small #3}}
+\captionsetup{format=custom}
+
+\newcommand{\lightgray}[1]{\colorbox{lightgray!40}{\texttt{\detokenize{#1}}}}
+
+% Setlength
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\setstretch{0.1}
+\setlist{itemsep=0\baselineskip}
+\setlength{\skip\footins}{0.5cm}
+\setlength{\headheight}{75pt}
+\setlength{\belowdisplayskip}{0pt} 
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} 
+\setlength{\abovedisplayshortskip}{0pt}
+\addtolength\abovedisplayskip{-0.5\baselineskip}
+\addtolength\belowdisplayskip{-0.5\baselineskip}
+\renewcommand{\baselinestretch}{1}\normalsize
+%\sisetup{inter-unit-product =$\cdot$}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\crefname{figure}{Fig.}{Figs.}       % Enkelvoud en meervoud voor figuren
+\Crefname{figure}{Fig.}{Figs.}       % Hoofdlettervariant
+\crefname{table}{Tab.}{Tabs.}        % Enkelvoud en meervoud voor tabellen
+\Crefname{table}{Tab.}{Tabs.}        % Hoofdlettervariant
+\crefname{equation}{Eq.}{Eqs.}       % Enkelvoud en meervoud voor vergelijkingen
+\Crefname{equation}{Eq.}{Eqs.}       % Hoofdlettervariant
+\newcommand{\fullref}[1]{\hyperref[#1]{\Cref{#1}}}
+
+\begin{document}
+
+% Eerste pagina zonder fancyhdr en plain maken (normaal)
+\thispagestyle{empty}  % Verberg header/footer op de eerste pagina
+\pagestyle{fancy}      % Zet fancy header/footer voor de rest van het document
+
+% Verhoog de baselinedichtheid
+\renewcommand{\baselinestretch}{1}\normalsize
+
+% Header en footer instellingen
+\fancyhf{}  % Leeg de standaard header/footer
+\renewcommand{\footrulewidth}{1.1pt}  % Voeg een voetregel toe
+\renewcommand{\headrulewidth}{0pt}    % Geen regel in de header
+\fancyhead[L]{\includegraphics[width=0.3\textwidth]{HAN-merkteken-descriptor.png}}  % Linksboven
+\fancyfoot[LE]{\thepage}  % Links onder pagina nummer (even pagina's)
+\fancyfoot[RO]{\thepage}  % Rechts onder pagina nummer (oneven pagina's)
+\fancyfoot[LO]{\leftmark}   % Voeg hoofdstuktitel toe in de voettekst
+\fancyfoot[RE]{\leftmark}   % Voeg hoofdstuktitel toe in de voettekst
+
+% Begin van het document
+\begin{titlepage}
+    \centering
+    \includegraphics[width=0.7\textwidth]{HAN-merkteken-descriptor.png}
+    \vspace{1cm} % Voeg ruimte toe
+    \hrule
+    \vspace{0.5cm}
+    {\Huge \bfseries Portfolio Assignment 2 - Ethics \par}
+    \vspace{0.5cm}
+    \hrule
+    \vspace{0.5cm}
+    {\LARGE Marcello Wienhoven \par}
+    \vspace{0.5cm}
+    {\LARGE \today \par}
+    \vspace{0.5cm}
+    \hrule
+    
+\end{titlepage}
+
+\pagenumbering{roman} 
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{First Impression Dating Casus}
+
+\section{Directed Acyclic Graph (DAG)}
+
+\section{Second Impression Dating Casus}
+
+\section{Recommendations for a Data Scientist in This Case}
+
+\clearpage
+
+% Bibliography
+\printbibliography[heading=bibintoc]
+
+\end{document}
