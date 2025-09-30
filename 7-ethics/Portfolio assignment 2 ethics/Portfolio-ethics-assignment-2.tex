@@ -170,6 +170,9 @@ The simplified Directed Acyclic Graph (DAG) of the algorithm of the dating app B
 \end{figure}
 
 \section{Second Impression Dating Casus}
+After drawing the DAG, given in \fullref{fig:DAG}, I noticed that the algorithmic matching process is influenced by both user attributes and historical data. This means that if there are biases already present in the historical data (for example, if users have historically shown a preference for certain groups over others), the algorithm may learn and perpetuate these biases. This can lead to unfair outcomes, such as certain users being systematically excluded from potential matches based on attributes like skin color.
+
+At first glance, the issue seems to stem from the way the algorithm was trained and optimized. If the primary goal of the algorithm is to maximize user engagement (e.g., clicks, matches), it may prioritize efficiency over fairness. This can result in an algorithm that favors certain user groups while disadvantaging others. The DAG highlights the importance of considering both the input data (user attributes and historical data) and the algorithmic process itself when evaluating potential biases and ethical concerns. Furthermore, transparency in how the algorithm operates and the criteria it uses for matching is crucial for identifying and addressing these issues. This broadens the ethical dilemma: the problem is not only potential discrimination by the algorithm, but also the responsibility of the developers/company to prevent such biases and ensure fairness in their platform.
 
 \section{Recommendations for a Data Scientist in This Case}
 
