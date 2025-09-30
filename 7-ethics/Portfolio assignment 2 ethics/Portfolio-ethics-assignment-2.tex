@@ -175,6 +175,17 @@ After drawing the DAG, given in \fullref{fig:DAG}, I noticed that the algorithmi
 At first glance, the issue seems to stem from the way the algorithm was trained and optimized. If the primary goal of the algorithm is to maximize user engagement (e.g., clicks, matches), it may prioritize efficiency over fairness. This can result in an algorithm that favors certain user groups while disadvantaging others. The DAG highlights the importance of considering both the input data (user attributes and historical data) and the algorithmic process itself when evaluating potential biases and ethical concerns. Furthermore, transparency in how the algorithm operates and the criteria it uses for matching is crucial for identifying and addressing these issues. This broadens the ethical dilemma: the problem is not only potential discrimination by the algorithm, but also the responsibility of the developers/company to prevent such biases and ensure fairness in their platform.
 
 \section{Recommendations for a Data Scientist in This Case}
+I would recommend the following to a data scientist working on the Breeze dating app to address the ethical concerns related to potential biases in the matching algorithm:
+\begin{itemize}
+    \item[1] \textbf{Bias Awareness in Data Collection:} Be aware of potential biases in the data collection process. Historical data can already be biased and potentially perpetuate discrimination. Use fairness-aware data collection methods to ensure a more balanced dataset.
+
+    \item[2] \textbf{Fairness Metrics:} Define and monitor fairness metrics (e.g., demographic parity, equal opportunity). Explicitly check whether protected groups are disadvantaged in match outcomes (to prevent possible discrimination).
+    
+    \item[3] \textbf{Algorithmic Transparency:} Ensure transparency in the algorithm's decision-making process. This includes documenting how the algorithm works, what data it uses, and how it makes decisions. Transparency can help identify and address potential biases.
+    
+    \item[4] \textbf{Stakeholder Involvement:} Include legal experts, ethicists, and representatives from diverse user groups in the development process. Their insights can help identify potential ethical issues and ensure that the algorithm aligns with societal values.
+
+\end{itemize}
 
 \clearpage
 
