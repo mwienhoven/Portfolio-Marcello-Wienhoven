@@ -41,6 +41,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{tgpagella}
 
+% For the DAG
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
 \lstset{language=Python, 
         basicstyle=\ttfamily\footnotesize, 
         keywordstyle=\color{blue}, 
@@ -131,8 +135,39 @@
 \setcounter{page}{1}
 
 \section{First Impression Dating Casus}
+The dating app Breeze uses a machine learning algorithm to match users based on their profiles and preferences. Because the algorithm selects who sees whom, it implicitly decides who gets access to potential matches and who does not. This raises ethical concerns about systematic biases that may disadvantage certain groups of users (for instance discrimination). 
+
+The issue seems to have emerged because the app's algorithm was trained and optimized mainly for user engagement and efficiency, without sufficient consideration of fairness and inclusivity. As a result, some users feel that they are being unfairly excluded from potential matches based on factors such as skin color.
 
 \section{Directed Acyclic Graph (DAG)}
+The simplified Directed Acyclic Graph (DAG) of the algorithm of the dating app Breeze is given in \fullref{fig:DAG}. 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+    node distance=2cm,
+    every node/.style={draw, rounded corners, align=center, minimum width=2.8cm, minimum height=1cm},
+    arrow/.style={-{Latex[length=3mm]}, thick}
+]
+
+% Nodes
+\node (user) {User Attributes \\ (gender, age, ethnicity)};
+\node[right=of user] (hist) {Historical Data \\ (past preferences, matches)};
+\node[below=of hist] (algo) {Algorithmic \\ Matching Process};
+\node[below=of algo] (opps) {Dating Opportunities \\ (who gets selected)};
+\node[below=of opps] (outcomes) {User Outcomes \\ (matches)};
+
+% Edges
+\draw[arrow] (user) -- (hist);
+\draw[arrow] (user) |- (algo);
+\draw[arrow] (hist) -- (algo);
+\draw[arrow] (algo) -- (opps);
+\draw[arrow] (opps) -- (outcomes);
+
+\end{tikzpicture}
+\caption{Simplified Directed Acyclic Graph (DAG) of the algorithm of the dating app Breeze}
+\label{fig:DAG}
+\end{figure}
 
 \section{Second Impression Dating Casus}
 
