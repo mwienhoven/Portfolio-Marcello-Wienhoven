@@ -10,10 +10,10 @@ Especially the normalization layers are quite interesting. There are a lot of wa
 
 ## 2. Results 03_mlflow.py
 
-### 2.1 Original 3 epochs
+## 2.1 Original 3 epochs
 The model included in the original 03_mlflow.py has been run. The accuracy of the model is around 0.711. I also adjusted some paths in the code to organize the ran models a bit better. The other .py models will be based on this file.
 
-### 2.2 Increased epochs to 12
+## 2.2 Increased epochs to 12
 I increased the epochs to 12 to see how long it took. Every run now takes a few minutes. The accuracy has increased a lot.
 
 The accuracy is now across the 3 trained models between 0.83, 0.78, and 0.77. The differences between the loss\train and loss\test are quite small (max 0.02). This means the models are not overfitting.
@@ -66,8 +66,15 @@ In the 03_mlflow.py, I added some extra logging in the with mlflow.start_run():.
 Also made sure the logging is also tracked in the format of the TensorBoard and the TOML files.
 
 ## 5. Adding convolutional and pooling layers
-I one extra layer of Conv2d (including ReLU) and removed 1 pooling layer.
+
+## 5.1 Original 3 epochs
+I added one extra layer of Conv2d (including ReLU) and removed 1 pooling layer.
 
 Most of the models in mlflow have a lower accuracy compared to the 0.71. I see accuracies in the range from 0.56 to 0.69. The mean of the ran models will be around 0.65. These models perform worst compared to the models without changing the layers.
+
+## 5.2 Increased epochs to 12
+I added one extra layer of Conv2d (including ReLU) and removed 1 pooling layer.
+
+The models obtain an accuracy of around 0.79. The differences between loss train and test are really small (around 0.1). These models dont perform quite well.
 
 [Go back to Homepage](../README.md)
