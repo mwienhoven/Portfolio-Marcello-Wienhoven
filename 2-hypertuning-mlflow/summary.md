@@ -9,18 +9,29 @@ I have looked at the links provided:
 Especially the normalization layers are quite interesting. There are a lot of ways to normalize the layer. 
 
 ## 2. Results 03_mlflow.py
+
+### 2.1 Original 3 epochs
 The model included in the original 03_mlflow.py has been run. The accuracy of the model is around 0.711. I also adjusted some paths in the code to organize the ran models a bit better. The other .py models will be based on this file.
 
+### 2.2 Increased epochs to 12
+I increased the epochs to 12 to see how long it took. Every run now takes a few minutes. The accuracy has increased a lot.
+
+The accuracy is now across the 3 trained models between 0.83, 0.78, and 0.77. The differences between the loss\train and loss\test are quite small (max 0.02). This means the models are not overfitting.
+
 ## 3. Add dropout and normalization layers to your model
-### 3.1 Dropout
+
+## 3.1 Original 3 epochs
+### 3.1.1 Dropout
 I added two Dropout layers (both probability of 0.5). They are added at the last linear and conv2d layer before the output layer as mentioned in the instructions. I ran 9 models.
 
 I see in mlflow that most of the models have an accuracy around 0.66. The ranges of accuracites vary between 0.64-0.70. These models perform worse compared to the models without dropout.
 
-### 3.2 Normalization
+### 3.1.2 Normalization
 I added an BatchNorm1d layer after the linear layers but not the output in the sequential layer. I ran 9 models.
 
 Most of the models in mlflow have a lower accuracy compared to the 0.71. I see accuracies in the range from 0.40 to 0.70. The mean of the ran models will be around 0.57. These models perform worse compared the the models without normalization.
+
+## 3.2 Increased epochs to 12
 
 ## 4. Use logging
 In the 03_mlflow.py, I added some extra logging in the with mlflow.start_run():. This included the amount of epochs, used optimizer, learning rate, used device, mlflow.set_tag("device", device), and the model architecture.
