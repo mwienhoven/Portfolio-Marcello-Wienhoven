@@ -72,7 +72,22 @@ The models now obtain an accuracy of 0.98 and 0.99. The models took again longer
 
 ## 2.5 Change learning rate
 
-The learning rate will be changed from the original 0.001 to 0.0001, 0.01, 0.1, and 1
+The learning rate will be changed from the original 0.001 to 0.0001, 0.01, 0.1, and 1. The models with an learning rate of 0.001 and 0.01 perform quite well. All the other learning rates are just not performing well. Future experiments will be done with the original learning rate of 0.001.
 
+### 2.5.1 Learning rate of 0.0001
+
+These models are just really bad. Accuracies of 0.28 to 0.32. The models were just not updating because the learning rate is way too low.
+
+### 2.5.2 Learning rate of 0.01
+
+These models obtain an accuracy of around 0.97 and 0.98. These models are just comparable with the original learning rate of 0.001. The differences are really small.
+
+### 2.5.3 Learning rate of 0.1
+These models are just bad. Accuracies of 0.57, 0.46, and 0.41. 
+
+### 2.5.4 Learning rate of 1
+These models are just bad. Accuracies of 0.34, 0.45, and 0.38. These models are even worse as the models with learning rate of 0.1.
+
+## 2.6 Changing the batchsize
 
 [Go back to Homepage](../README.md)
