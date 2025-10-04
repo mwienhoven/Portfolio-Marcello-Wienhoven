@@ -54,4 +54,25 @@ The models now obtain an accuracy of 0.90 to 0.94. I noticed the best models wer
 
 The models now obtain an accuracy of 0.90, 0.93, and 0.95. The accuracy of 0.95 is the highest yet! However, the differences of the test and train losses are really high in all the models (differences of 0.08 - 0.11 (with absolute errors of 0.30 - 0.45)). This means the models are less generalizing and probably are overfitting. A lot of neurons are deactivated every run.
 
+## 2.4 Changed hidden size
+
+The hidden size will be changed to 32, 128, and 256. The original hidden size in the experiments before are 64. In the upcoming experiments, the hidden size of 128 will be used
+
+### 2.4.1 Hidden size of 32
+
+The models now obtain an accuracy of 0.61 to 0.68. This means the models are really bad compared to earlier models. The models are underfitting extremely. 32 neurons per layer is just not enough to capture the hidden relationship. These models also took a lot less time to train, because less calculations had to be made.
+
+### 2.4.2 Hidden size of 128
+
+The models now obtain an accuracy of 0.96 to 0.99 (0.9906 max). These are the highest accuracies so far! The models also took longer to train because there are more calculations to perform. The differences between the train and test loss are also quite small.
+
+### 2.4.3 Hidden size of 256
+
+The models now obtain an accuracy of 0.98 and 0.99. The models took again longer compared to hidden size of 128 because of the added neurons and calculations. The losses of the train are now almost zero, meaning the models are overfitting now.
+
+## 2.5 Change learning rate
+
+The learning rate will be changed from the original 0.001 to 0.0001, 0.01, 0.1, and 1
+
+
 [Go back to Homepage](../README.md)
