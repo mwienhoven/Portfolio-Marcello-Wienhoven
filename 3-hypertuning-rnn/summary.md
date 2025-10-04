@@ -30,5 +30,7 @@ This model obtained an accuracy of 0.89-0.91 with different runs. This is quite 
 This model obtained an accuracy of 0.9656. This is really high. Is this model not overfitting?
 
 ## 2 Second ran experiments
+## 2.1 Original model
 
+The original models obtain an accuracy of around 0.26 to 0.31. The model did not have enough epochs to update the weights. The model is underfitting extremely.
 [Go back to Homepage](../README.md)
