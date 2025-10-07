@@ -89,7 +89,7 @@ These models are just bad. Accuracies of 0.57, 0.46, and 0.41.
 These models are just bad. Accuracies of 0.34, 0.45, and 0.38. These models are even worse as the models with learning rate of 0.1.
 
 ## 2.6 Changing the batchsize
-The batchsize will be changed from 32 to 4, 16, and 64. The models mostly performed better at an lower batchsize. For the future models, a batchsize of 4 will be used.
+The batchsize will be changed from 32 to 4, 16, and 64. The models mostly performed better at an lower batchsize. For the future models, a batchsize of 16 will be used (only 2.7.1 has a batchsize of 4).
 
 ### 2.6.1 Batchsize of 4
 The models now obtain an accuracy of 0.994, 0.990, and 0.994. I notice that these models take a lot longer (3 min compared to earlier 30 seconds) to train. This is logical, because the models has more samples to train per epoch because the batchsize is smaller. Also the differences in train and test loss is really small, so the model generalizes well.
@@ -99,4 +99,21 @@ The models now obtain an accuracy of 0.98, 0.98, and 0.985. I notice that the mo
 
 ### 2.6.3 Batchsize of 64
 The models took a lot less time to train. The model has less samples of batches per epoch. The models obtain an accuracy of 0.94, 0.95, and 0.94. These models perform less than all other models in 2.6.
+
+## 2.7 Changing number of layers
+The number of layers will be changed from 1 to 3,5,7. I only did 2.7.1 with batch 4, the rest is with batch 16.
+
+### 2.7.1 Number of layers of 3
+This model tooks the longest to train. This is logical because of the more needed calculations to perform (more weights). The models obtain an accuracy of 0.994, 0.992, and 0.995. Also the losses between train and test are small (but slightly increased compared to number of layers = 1).
+
+### 2.7.2 Number of layers of 5
+The models also take longer to train when increasing the number of layers. The models obtain an accuracy of 0.994, 0.985, and 0.995. Differences in train and test loss are quite small. 
+
+### 2.7.3 Number of layers of 7
+The models now take longer to train and also achieve less acurracy. I stopped after one model.
+
+## 2.8 LSTM model
+I want to compare the model in 2.4.2 to the LSTM. I modelled the LSTM model in the notebook notebook_epoch16_drop0.5_hidsize128_LSTM.ipynb.
+
+
 [Go back to Homepage](../README.md)
