@@ -115,5 +115,12 @@ The models now take longer to train and also achieve less acurracy. I stopped af
 ## 2.8 LSTM model
 I want to compare the model in 2.4.2 to the LSTM. I modelled the LSTM model in the notebook notebook_epoch16_drop0.5_hidsize128_LSTM.ipynb.
 
+The models obtained a maximum accuracy of 0.9796. This is lower than the GRU. Did not notice a change in run time.
+
+## 2.9 High epochs (epochs=200)
+I want to compare the model in 2.4.2 with this model with a lot of epochs. I wanted to see what happens at an really high epochs of 200. Also had to set earlystop_kwargs=None
+
+The model achieved an accuracy of 0.994. I could train the model in 2.7.1 with 200 epochs, but that would take a really long time. This model performs slightly worse.
+
 
 [Go back to Homepage](../README.md)
