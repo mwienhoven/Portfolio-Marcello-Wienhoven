@@ -89,5 +89,14 @@ These models are just bad. Accuracies of 0.57, 0.46, and 0.41.
 These models are just bad. Accuracies of 0.34, 0.45, and 0.38. These models are even worse as the models with learning rate of 0.1.
 
 ## 2.6 Changing the batchsize
+The batchsize will be changed from 32 to 4, 16, and 64. The models mostly performed better at an lower batchsize. For the future models, a batchsize of 4 will be used.
 
+### 2.6.1 Batchsize of 4
+The models now obtain an accuracy of 0.994, 0.990, and 0.994. I notice that these models take a lot longer (3 min compared to earlier 30 seconds) to train. This is logical, because the models has more samples to train per epoch because the batchsize is smaller. Also the differences in train and test loss is really small, so the model generalizes well.
+
+### 2.6.2 Batchsize of 16
+The models now obtain an accuracy of 0.98, 0.98, and 0.985. I notice that the models took a bit longer compared to batchsize of 32 (same reasoning as in 2.6.1). The differences in train and test loss are bigger, model less generalizes.
+
+### 2.6.3 Batchsize of 64
+The models took a lot less time to train. The model has less samples of batches per epoch. The models obtain an accuracy of 0.94, 0.95, and 0.94. These models perform less than all other models in 2.6.
 [Go back to Homepage](../README.md)
