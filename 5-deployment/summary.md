@@ -5,11 +5,13 @@ make all
 ```
 in the terminal builds the docker images and runs them. The ingest, preprocess, and model steps are seperated in multiple docker images. 
 
-The repository for the deployment exercise (2-frontend folder), in which I had to make a word predictor, can be found in [**Game-Dictionary-Word-Predictor](https://github.com/mwienhoven/Game-Dictionary-Word-Predictor). When activating the Virtual Machine UOS3-MWienhoven on [SURF](https://portal.live.surfresearchcloud.nl/dashboard/workspaces), the word predictor can be found on:
+The repository for the deployment exercise (2-frontend folder), in which I had to make a word predictor, can be found in [**Game-Dictionary-Word-Predictor](https://github.com/mwienhoven/Game-Dictionary-Word-Predictor). When activating the Virtual Machine UOS3-MWienhoven on [SURF](https://portal.live.surfresearchcloud.nl/dashboard/workspaces), the word predictor can be accessed via:
 
 ```bash
-URL to be filled in
+http://145.38.188.207/
 ```
+
+The README.md in [**Game-Dictionary-Word-Predictor](https://github.com/mwienhoven/Game-Dictionary-Word-Predictor) also describes other (potentially needed) commands to activate the application.
 
 [Go back to Homepage](../README.md)
 
