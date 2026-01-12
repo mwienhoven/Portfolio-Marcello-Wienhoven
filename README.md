@@ -4,6 +4,13 @@ This portfolio contains a summary of my work, including machine learning exercis
 
 This website is built automatically using GitHub Pages. The main page you're reading right now is generated from the `README.md` file.
 
+## Link to the website of this portfolio
+The link to the website of this portfolio can be found via:
+
+```bash
+https://mwienhoven.github.io/Portfolio-Marcello-Wienhoven/
+```
+
 ## Table of Contents
 
 1.  **[Hyperparameter gridsearch](./1-hypertuning-gridsearch/summary.md)**
